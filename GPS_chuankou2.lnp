@@ -1,0 +1,5 @@
+"STARTUP.obj",
+"GPS_chuankou2.obj",
+"GPS_chuankou2_GPS_init.obj" 
+TO "GPS_chuankou2" 
+RAMSIZE(256) 

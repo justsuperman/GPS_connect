@@ -1,0 +1,258 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/22/2015  02:27:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, GPS_chuankou2.obj, GPS_chuankou2_GPS_init.obj TO GPS_chuankou2 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  GPS_chuankou2.obj (GPS_CHUANKOU2)
+  GPS_chuankou2_GPS_init.obj (GPS_CHUANKOU2_GPS_INIT)
+
+
+LINK MAP OF MODULE:  GPS_chuankou2 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?GPS_CHUANKOU2_GPS_INIT
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0112H     UNIT         ?PR?GPS_INIT?GPS_CHUANKOU2_GPS_INIT
+            CODE    0115H     005EH     UNIT         ?CO?GPS_CHUANKOU2_GPS_INIT
+            CODE    0173H     0011H     UNIT         ?PR?MAIN?GPS_CHUANKOU2
+            CODE    0184H     000FH     UNIT         ?PR?UARTINIT?GPS_CHUANKOU2
+            CODE    0193H     000FH     UNIT         ?PR?DELAY1000MS?GPS_CHUANKOU2_GPS_INIT
+            CODE    01A2H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   GPS_chuankou2 (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?GPS_CHUANKOU2
+
+?PR?MAIN?GPS_CHUANKOU2
+  +--> ?PR?UARTINIT?GPS_CHUANKOU2
+  +--> ?PR?DELAY1000MS?GPS_CHUANKOU2_GPS_INIT
+  +--> ?PR?GPS_INIT?GPS_CHUANKOU2_GPS_INIT
+
+?PR?GPS_INIT?GPS_CHUANKOU2_GPS_INIT
+  +--> ?CO?GPS_CHUANKOU2_GPS_INIT
+
+
+
+SYMBOL TABLE OF MODULE:  GPS_chuankou2 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/22/2015  02:27:18  PAGE 2
+
+
+
+  -------         MODULE        ?C_STARTUP
+  C:01A2H         SEGMENT       ?C_C51STARTUP
+  I:0009H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:01A5H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:01A2H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:01A2H         LINE#         133
+  C:01A4H         LINE#         134
+  C:01A5H         LINE#         135
+  C:01A6H         LINE#         136
+  C:01A8H         LINE#         185
+  C:01ABH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        GPS_CHUANKOU2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:0173H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  C:0184H         PUBLIC        UartInit
+  D:0088H         PUBLIC        TCON
+  D:00AFH         PUBLIC        IE2
+  D:008EH         PUBLIC        AUXR
+  D:009AH         PUBLIC        S2CON
+  D:009CH         PUBLIC        BRT
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          UARTINIT
+  C:0184H         LINE#         7
+  C:0184H         LINE#         8
+  C:0184H         LINE#         9
+  C:0187H         LINE#         10
+  C:018AH         LINE#         11
+  C:018DH         LINE#         12
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/22/2015  02:27:18  PAGE 3
+
+
+  C:0190H         LINE#         13
+  C:0192H         LINE#         14
+  -------         ENDPROC       UARTINIT
+  -------         PROC          MAIN
+  C:0173H         LINE#         17
+  C:0173H         LINE#         18
+  C:0173H         LINE#         19
+  C:0176H         LINE#         20
+  C:0179H         LINE#         21
+  C:017CH         LINE#         22
+  C:017FH         LINE#         23
+  C:0182H         LINE#         24
+  C:0182H         LINE#         25
+  C:0182H         LINE#         27
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        GPS_CHUANKOU2
+
+  -------         MODULE        GPS_CHUANKOU2_GPS_INIT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0003H         PUBLIC        GPS_init
+  D:00A8H         PUBLIC        IE
+  C:0193H         PUBLIC        Delay1000ms
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:009BH         PUBLIC        S2BUF
+  D:009AH         PUBLIC        S2CON
+  D:0008H         PUBLIC        i
+  C:0115H         PUBLIC        temp1
+  C:0125H         PUBLIC        temp2
+  C:0135H         PUBLIC        temp3
+  C:0145H         PUBLIC        temp4
+  C:0155H         PUBLIC        temp5
+  C:0165H         PUBLIC        temp6
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          GPS_INIT
+  C:0003H         LINE#         24
+  C:0003H         LINE#         25
+  C:0003H         LINE#         26
+  C:0006H         LINE#         27
+  C:0006H         LINE#         28
+  C:000EH         LINE#         29
+  C:0014H         LINE#         30
+  C:0017H         LINE#         31
+  C:001EH         LINE#         32
+  C:0021H         LINE#         33
+  C:0027H         LINE#         34
+  C:002AH         LINE#         36
+  C:002DH         LINE#         37
+  C:002DH         LINE#         38
+  C:0035H         LINE#         39
+  C:003BH         LINE#         40
+  C:003EH         LINE#         41
+  C:0045H         LINE#         42
+  C:0048H         LINE#         43
+  C:004EH         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/22/2015  02:27:18  PAGE 4
+
+
+  C:0051H         LINE#         47
+  C:0054H         LINE#         48
+  C:0054H         LINE#         49
+  C:005CH         LINE#         50
+  C:0062H         LINE#         51
+  C:0065H         LINE#         52
+  C:006CH         LINE#         53
+  C:006FH         LINE#         54
+  C:0075H         LINE#         55
+  C:0078H         LINE#         59
+  C:007BH         LINE#         60
+  C:007BH         LINE#         61
+  C:0083H         LINE#         62
+  C:0089H         LINE#         63
+  C:008CH         LINE#         64
+  C:0093H         LINE#         65
+  C:0096H         LINE#         66
+  C:009CH         LINE#         67
+  C:009FH         LINE#         71
+  C:00A2H         LINE#         72
+  C:00A2H         LINE#         73
+  C:00AAH         LINE#         74
+  C:00B0H         LINE#         75
+  C:00B3H         LINE#         76
+  C:00BAH         LINE#         77
+  C:00BDH         LINE#         78
+  C:00C3H         LINE#         79
+  C:00C6H         LINE#         83
+  C:00C9H         LINE#         84
+  C:00C9H         LINE#         85
+  C:00D1H         LINE#         86
+  C:00D7H         LINE#         87
+  C:00DAH         LINE#         88
+  C:00E1H         LINE#         89
+  C:00E4H         LINE#         90
+  C:00EAH         LINE#         91
+  C:00EDH         LINE#         95
+  C:00F0H         LINE#         96
+  C:00F0H         LINE#         97
+  C:00F8H         LINE#         98
+  C:00FEH         LINE#         99
+  C:0101H         LINE#         100
+  C:0108H         LINE#         101
+  C:010BH         LINE#         102
+  C:0111H         LINE#         103
+  C:0114H         LINE#         104
+  -------         ENDPROC       GPS_INIT
+  -------         PROC          DELAY1000MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  D:0005H         SYMBOL        k
+  -------         ENDDO         
+  C:0193H         LINE#         105
+  C:0193H         LINE#         106
+  C:0193H         LINE#         109
+  C:0194H         LINE#         110
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/22/2015  02:27:18  PAGE 5
+
+
+  C:0195H         LINE#         111
+  C:0197H         LINE#         112
+  C:0199H         LINE#         113
+  C:019BH         LINE#         115
+  C:019BH         LINE#         117
+  C:019BH         LINE#         118
+  C:019DH         LINE#         119
+  C:019FH         LINE#         120
+  C:01A1H         LINE#         121
+  -------         ENDPROC       DELAY1000MS
+  -------         ENDMOD        GPS_CHUANKOU2_GPS_INIT
+
+Program Size: data=10.0 xdata=0 code=430
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

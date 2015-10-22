@@ -1,0 +1,121 @@
+/***********发送固定字符，让GPS返回想要的数据*******************/
+#include<12C5A60S2.h>
+#include<intrins.h>
+#define uchar unsigned char
+#define uint unsigned int
+uchar i;
+uchar code temp1[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0xF0,0x05,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x46};	
+//GPVTG
+uchar code temp2[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0xF0,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x24};
+//GPGGA
+uchar code temp3[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0xF0,0x02,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x31};
+//GPGSA
+uchar code temp4[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0xF0,0x03,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0x38};
+//GPGSV
+uchar code temp5[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0xF0,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x2A};
+//GPGLL
+uchar code temp6[14]={0xB5,0x62,0x06,0x08,0x06,0x00,0x60,0xEA,0x01,0x00,0x01,0x00,0x60,0x8C};
+//1分钟
+//uchar code temp7[14]={0xB5,0x62,0x06,0x08,0x06,0x00,0x10,0x27,0x01,0x00,0x01,0x00,0x4D,0xDD};
+//10秒
+
+void Delay1000ms();//延时1秒
+
+void GPS_init()	//GPS初始化
+{
+		for(i=0;i<16;i++)
+		{
+			S2BUF=temp1[i];
+			while(S2CON == 0x50); //因为S2CON的S2TI不带sbit的位寻址，所以只能对S2CON全部赋值
+			S2CON = 0x50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;
+		///////////第一个的，我们发两次////////////
+		for(i=0;i<16;i++)
+		{
+			S2BUF=temp1[i];
+			while(S2CON == 0x50);
+			S2CON=0X50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;	
+		
+		////////////////////////
+			for(i=0;i<16;i++)
+		{
+			S2BUF=temp2[i];
+			while(S2CON == 0x50);
+			S2CON=0X50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;
+
+		
+		/////////////////////
+			for(i=0;i<16;i++)
+		{
+			S2BUF=temp3[i];
+			while(S2CON == 0x50);
+			S2CON=0X50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;
+
+		
+		///////////////////////
+			for(i=0;i<16;i++)
+		{
+			S2BUF=temp4[i];
+			while(S2CON == 0x50);
+			S2CON=0X50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;
+
+		
+		///////////////////
+			for(i=0;i<16;i++)
+		{
+			S2BUF=temp5[i];
+			while(S2CON == 0x50);
+			S2CON=0X50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;
+
+		
+		///////////////////////
+			for(i=0;i<14;i++)
+		{
+			S2BUF=temp6[i];
+			while(S2CON == 0x50);
+			S2CON=0X50;
+		}
+		S2BUF='\0';
+		while(S2CON == 0x50);
+		S2CON=0X50;
+}
+void Delay1000ms()		//@11.0592MHz 延时一秒
+{
+	unsigned char i, j, k;
+
+	_nop_();
+	_nop_();
+	i = 43;
+	j = 6;
+	k = 203;
+	do
+	{
+		do
+		{
+			while (--k);
+		} while (--j);
+	} while (--i);
+}		
